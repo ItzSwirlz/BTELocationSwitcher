@@ -146,6 +146,10 @@ public class BTECommand extends CommandBase {
 				serverIp = "66.11.118.103:25609";
 				serverName = "BTE South Africa";
 				break;
+			case "france":
+				serverIp = "bte.thesmyler.fr";
+				serverName = "BTE France";
+				break;
 			default:
 				serverIp = "buildtheearth.net";
 				serverName = "Build The Earth";
