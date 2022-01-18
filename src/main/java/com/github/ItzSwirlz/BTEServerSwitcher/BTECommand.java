@@ -40,12 +40,6 @@ public class BTECommand extends CommandBase {
 				serverIp = "buildtheearth.net";
 				serverName = "Build The Earth";
 				break;
-			case "minefact":
-			case "ny":
-			case "nyc":
-				serverIp = "minefact.de";
-				serverName = "New York - MineFact Network";
-				break;
 			case "germany":
 				serverIp = "bte-germany.de";
 				serverName = "Build The Earth Germany";
@@ -97,10 +91,6 @@ public class BTECommand extends CommandBase {
 				serverIp = "207.244.229.33:25567";
 				serverName = "BTE Southeast US";
 				break;
-			case "oceania":
-				serverIp = "hub.bteoce.com";
-				serverName = "Oceania Build Team";
-				break;
 			case "carolinas_us":
 			case "us_carolinas":
 			case "carolinas":
@@ -115,10 +105,6 @@ public class BTECommand extends CommandBase {
 			case "chile":
 				serverIp = "bteconosur.com";
 				serverName = "BuildTheEarth - Southern Cone";
-				break;
-			case "singapore":
-				serverIp = "asean.my.to";
-				serverName = "BTE Singapore";
 				break;
 			case "hong_kong":
 			case "macau":
@@ -140,11 +126,6 @@ public class BTECommand extends CommandBase {
 			case "controversy":
 				serverIp = "teams.buildtheearth.net:25503";
 				serverName = "BTE Controversy";
-				break;
-			case "south_africa":
-			case "southafrica":
-				serverIp = "66.11.118.103:25609";
-				serverName = "BTE South Africa";
 				break;
 			case "france":
 				serverIp = "bte.thesmyler.fr";
