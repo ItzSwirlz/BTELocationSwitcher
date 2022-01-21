@@ -11,6 +11,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
+apple-plugin: 'groovy'
 apply plugin: 'maven-publish'
 
 version = '1.0'
@@ -99,8 +100,13 @@ jar {
 
 test {
     useJUnit()
+    useJUnitPlatform()
 
     maxHeapSize = '1G'
+
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }
 
 // Example configuration to allow publishing using the maven-publish task
