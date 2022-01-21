@@ -11,7 +11,6 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
-apply plugin: 'groovy'
 apply plugin: 'maven-publish'
 
 version = '1.0'
@@ -81,6 +80,7 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
     testCompile "junit:junit:4.12"
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.7.1'
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..

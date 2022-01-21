@@ -1,4 +1,4 @@
-package com.github.ItzSwirlz.BTEServerSwitcher;
+import java.net.InetAddress;
 
 import org.junit.Test;
 
@@ -25,10 +25,14 @@ public class OnlineServerTest {
 
     @Test
     public void test() {
-        for(int i: ips) {
+    	System.out.println("Hello!");
+        for(String i: ips) {
             try {
                 InetAddress address = InetAddress.getByName(i);
                 boolean reachable = address.isReachable(10000);
+                if (reachable == true) {
+                	System.out.println(i);
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
