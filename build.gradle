@@ -11,7 +11,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
-apple-plugin: 'groovy'
+apply plugin: 'groovy'
 apply plugin: 'maven-publish'
 
 version = '1.0'
