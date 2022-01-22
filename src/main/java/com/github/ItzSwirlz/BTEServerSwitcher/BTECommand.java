@@ -131,6 +131,15 @@ public class BTECommand extends CommandBase {
 				serverIp = "bte.thesmyler.fr";
 				serverName = "BTE France";
 				break;
+			case "oceania":
+			case "oce":
+			case "australia":
+			case "new_zealand":
+			case "au":
+			case "nz":
+				serverIp = "hub.bteoce.com";
+				server Name = "Oceania Build Team";
+				break;
 			default:
 				serverIp = "buildtheearth.net";
 				serverName = "Build The Earth";
