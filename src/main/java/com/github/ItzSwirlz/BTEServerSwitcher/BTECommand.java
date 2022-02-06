@@ -1,5 +1,10 @@
 package com.github.ItzSwirlz.BTEServerSwitcher;
 
+import java.util.Collections;
+import java.util.List;
+
+import javax.annotation.Nullable;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.gui.GuiMultiplayer;
@@ -10,9 +15,49 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 
 public class BTECommand extends CommandBase {
+
+	public String[] ips = {"bte",
+            "germany",
+            "nj",
+            "southwest_us",
+            "us_southwest",
+            "southwest",
+            "nordic",
+            "baltic",
+            "midwest_us",
+            "us_midwest",
+            "midwest",
+            "northeast_us",
+            "us_northeast",
+            "northeast",
+            "alps",
+            "montreal",
+            "canada",
+            "russia",
+            "cis",
+            "southeast_us",
+            "us_southeast",
+            "southeast",
+            "carolinas_us",
+            "us_carolinas",
+            "carolinas",
+            "japan",
+            "argentina",
+            "chile",
+            "hong_kong",
+            "macau",
+            "hk_mu",
+            "hkmu",
+            "israel",
+            "israel_wb",
+            "wb",
+            "taiwan",
+            "controversy",
+            "france"};
 	
 	@Override
 	public String getName() {
@@ -154,5 +199,11 @@ public class BTECommand extends CommandBase {
 		mc.displayGuiScreen(new GuiMultiplayer(new GuiMainMenu()));
 		mc.displayGuiScreen(new GuiConnecting(mc.currentScreen, mc, new ServerData("ServerRedirect", serverIp, false)));
 	}
+
+	@Override
+	public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, @Nullable BlockPos targetPos)
+    {
+        return args.length == 1 ? getListOfStringsMatchingLastWord(args, ips) : Collections.emptyList();
+    }
 
 }
