@@ -1,6 +1,6 @@
 package com.github.ItzSwirlz.BTEServerSwitcher;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,8 +20,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 
 public class BTECommand extends CommandBase {
-
-	List<String> aliases = new ArrayList<String>();
 
 	public String[] ips = {"bte",
             "germany",
@@ -64,8 +62,7 @@ public class BTECommand extends CommandBase {
 
 	@Override
 	public List<String> getAliases() {
-		aliases.add("buildtheearth");
-		return aliases;
+		return Arrays.asList("buildtheearth");
 	}
 
 	@Override
