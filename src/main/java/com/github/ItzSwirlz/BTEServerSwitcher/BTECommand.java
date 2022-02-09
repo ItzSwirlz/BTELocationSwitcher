@@ -20,6 +20,9 @@ import net.minecraft.util.text.TextComponentString;
 
 public class BTECommand extends CommandBase {
 
+	List alises = new ArrayList();
+	aliases.add('buildtheearth');
+
 	public String[] ips = {"bte",
             "germany",
             "nj",
@@ -58,7 +61,12 @@ public class BTECommand extends CommandBase {
             "taiwan",
             "controversy",
             "france"};
-	
+
+	@Override
+	public List<String> getAliases() {
+		return aliases;
+	}
+
 	@Override
 	public String getName() {
 		return "bte";
