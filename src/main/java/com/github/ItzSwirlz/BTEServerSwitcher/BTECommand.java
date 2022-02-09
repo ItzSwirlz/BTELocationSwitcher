@@ -21,7 +21,7 @@ import net.minecraft.util.text.TextComponentString;
 public class BTECommand extends CommandBase {
 
 	List alises = new ArrayList();
-	aliases.add('buildtheearth');
+	aliases.add("buildtheearth");
 
 	public String[] ips = {"bte",
             "germany",
