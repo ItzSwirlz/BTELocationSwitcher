@@ -20,7 +20,7 @@ import net.minecraft.util.text.TextComponentString;
 
 public class BTECommand extends CommandBase {
 
-	List<String> aliases = new ArrayList<>();
+	List<String> aliases = new ArrayList<String>();
 	aliases.add("buildtheearth");
 
 	public String[] ips = {"bte",
