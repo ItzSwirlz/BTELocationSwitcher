@@ -87,9 +87,9 @@ dependencies {
 jar {
     manifest {
         attributes([
-            "Specification-Title": "bteserverswitchermod",
+            "Specification-Title": "bteserverswitcher",
             "Specification-Vendor": "ItzSwirlz",
-            "Specification-Version": "1", // We are version 1 of ourselves
+            "Specification-Version": "0.0.1",
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
             "Implementation-Vendor" :"ItzSwirlz",

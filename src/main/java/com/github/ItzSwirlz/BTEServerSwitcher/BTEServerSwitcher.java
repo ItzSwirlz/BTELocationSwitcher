@@ -9,8 +9,8 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 @Mod(modid = BTEServerSwitcher.MODID, name = BTEServerSwitcher.NAME, version = BTEServerSwitcher.VERSION)
 public class BTEServerSwitcher
 {
-    public static final String MODID = "bteserverswitchermod";
-    public static final String NAME = "Build The Earth Server Switcher Mod";
+    public static final String MODID = "bteserverswitcher";
+    public static final String NAME = "Build The Earth Server Switcher";
     public static final String VERSION = "0.0.1";
 
     @EventHandler

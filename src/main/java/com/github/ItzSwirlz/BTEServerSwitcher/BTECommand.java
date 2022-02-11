@@ -72,7 +72,7 @@ public class BTECommand extends CommandBase {
 
 	@Override
 	public String getUsage(ICommandSender sender) {
-		return "/bte [server]";
+		return "/bte <server>";
 	}
 	
 	@Override
