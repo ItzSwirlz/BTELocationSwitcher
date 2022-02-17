@@ -1,4 +1,4 @@
-package com.github.ItzSwirlz.BTEServerSwitcher;
+package com.github.ItzSwirlz.BTELocationSwitcher;
 
 import java.util.Arrays;
 import java.util.Collections;

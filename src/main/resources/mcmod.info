@@ -1,15 +1,15 @@
 [
 {
-  "modid": "bteserverswitcher",
-  "name": "Build The Earth Server Switcher",
-  "description": "A client-side Forge mod that adds a command to send you to a Build The Earth server of choice.",
+  "modid": "btelocationswitcher",
+  "name": "Build The Earth Location Switcher",
+  "description": "A client-side Forge mod that lets you switch your location, from other build servers to points of interest.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "https://github.com/ItzSwirlz/BTEServerSwitcher",
+  "url": "https://github.com/ItzSwirlz/BTELocationSwitcher",
   "updateUrl": "",
   "authorList": ["ItzSwirlz"],
   "credits": "KaiKikuchi, SmylerMC, the Forge Developers, the Terra++/Terra121/Build The Earth developers, and TheChewyMC for helping me, as an 8 year old, learn how to make my first Minecraft mod (1.7.10) and make me get into programming.",
-  "logoFile": "",
+  "logoFile": "assets/btelocationswitcher/icon.png",
   "screenshots": [],
   "dependencies": []
 }

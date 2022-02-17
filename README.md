@@ -1,2 +1,2 @@
-# BTEServerSwitcher
-A Client-side Forge mod that adds a command to send you to a Build The Earth server of choice.
+# BTELocationSwitcher
+A client-side Forge mod that lets you switch your location, from other build servers to points of interest.
