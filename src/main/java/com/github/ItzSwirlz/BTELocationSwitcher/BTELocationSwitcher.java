@@ -1,22 +1,14 @@
 package com.github.ItzSwirlz.BTELocationSwitcher;
 
-import net.minecraftforge.client.ClientCommandHandler;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
 
-@Mod(modid = BTELocationSwitcher.MODID, name = BTELocationSwitcher.NAME, version = BTELocationSwitcher.VERSION)
-public class BTELocationSwitcher
-{
-    public static final String MODID = "btelocationswitcher";
-    public static final String NAME = "Build The Earth Location Switcher";
-    public static final String VERSION = "0.0.1";
+public class BTELocationSwitcher implements ModInitializer {
 
-    @EventHandler
-    public void init(FMLInitializationEvent event)
-    {
-    	MinecraftForge.EVENT_BUS.register(this);
-    	ClientCommandHandler.instance.registerCommand(new BTECommand());
-    }
+	@Override
+	public void onInitialize() {
+		CommandRegistrationCallback.EVENT.register(((dispatcher, dedicated) -> {
+			BTECommand.register(dispatcher);
+		}));
+	}
 }
