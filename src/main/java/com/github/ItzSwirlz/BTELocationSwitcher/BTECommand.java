@@ -7,25 +7,32 @@ import static net.minecraft.server.command.CommandManager.literal;
 
 import com.mojang.brigadier.CommandDispatcher;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.event.Event;
+import net.fabricmc.fabric.api.event.EventFactory;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ConnectScreen;
 import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.screen.multiplayer.MultiplayerScreen;
+import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.client.network.ServerAddress;
 import net.minecraft.client.network.ServerInfo;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 
 
 public class BTECommand {
 
 	public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
-		dispatcher.register(literal("bte")
-				.then(argument("server", greedyString())
-				.executes((ctx -> run(ctx.getSource(), getString(ctx, "server"))))
-				.executes(ctx -> run(ctx.getSource(), null))));
+		//dispatcher.register(literal("bte")
+		//		.then(argument("server", greedyString())
+		//		.executes((ctx -> run(ctx.getSource(), getString(ctx, "server"))))));
+		dispatcher.register(literal("bte").executes(ctx -> run(ctx.getSource(), "bte.net")));
 	}
 	
+	@Environment(EnvType.CLIENT)
 	public static int run(ServerCommandSource source, String server) {
 		//String[] args = server.split(" ");
 		String serverIp = "";
@@ -143,7 +150,15 @@ public class BTECommand {
 		
 		// I would not know how to do this, thank you KaiKikuchi for saving my time.
 		// https://github.com/KaiKikuchi/ServerRedirect/blob/fabric1.18.1/
+		
+		if (!MinecraftClient.getInstance().isOnThread()) {
+			throw new IllegalStateException("Not in the main thread");
+		}
+
 		final MinecraftClient mc = MinecraftClient.getInstance();
+		
+		ClientPlayerInteractionManager manager = new ClientPlayerInteractionManager(mc, null);
+		mc.interactionManager = manager;
 		
 		if (mc.world != null) {
 			mc.world.disconnect();
@@ -157,3 +172,5 @@ public class BTECommand {
 		return 1;
 	}
 }
+
+
