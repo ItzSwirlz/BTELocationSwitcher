@@ -9,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-import org.json.*;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
@@ -28,9 +28,25 @@ public class BTEServerIPGetter {
 
 		JSONObject obj = (JSONObject) o;
 		
+		// sanity checks on our server alias
+		if(serverAlias.length() == 0) {
+			serverAlias = "bte";
+		}
+		
+		switch(serverAlias) {
+		case "":
+			serverAlias = "bte";
+			break;
+		default:
+			serverAlias = "bte";
+			break;
+		}
+		
 		// Get our server IP!
 		// THIS is the exciting part
-		String serverIp = (String) obj.getString(serverAlias);
+		String serverIp = (String) obj.get(serverAlias);
+		
+		System.out.println(serverIp);
 		return serverIp;
 	}
 

@@ -24,7 +24,10 @@ import net.minecraft.util.text.TextComponentString;
 
 public class BTECommand extends CommandBase {
 
-	public String[] ips = {
+	// Alias's for the server names people can go by
+	// This shows in the tab
+	public String[] acceptableIps = {
+			"bte",
             "germany",
             "nj",
             "southwest_us",
@@ -86,121 +89,12 @@ public class BTECommand extends CommandBase {
 	@Override
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		String serverIp = "";
-		String serverName = "";
 
-		// TODO: Always check, improve and add servers as they come and go.
-		if(args.length == 0) {
-			serverIp = "buildtheearth.net";
-			serverName = "Build The Earth";
-		} else {
-			switch(args[0].toLowerCase()) {
-				case "bte":
-				try {
-					BTEServerIPGetter.getIp(args[0].toLowerCase());
-				} catch (IOException | ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-					break;
-				case "germany":
-					serverIp = "bte-germany.de";
-					serverName = "Build The Earth Germany";
-					break;
-				case "nj":
-					serverIp = "hub.andromedacraft.com";
-					serverName = "1:1 New Jersey";
-					break;
-				case "southwest_us":
-				case "us_southwest":
-				case "southwest":
-					serverIp = "207.244.229.33:25565";
-					serverName = "BTE Southwest US";
-					break;
-				case "nordic":
-				case "baltic":
-					serverIp = "nordicbalticbte.net";
-					serverName = "Build The Earth Nordic + Baltic";
-					break;
-				case "midwest_us":
-				case "us_midwest":
-				case "midwest":
-					serverIp = "midwestbte.net";
-					serverName = "BTE Midwest";
-					break;
-				case "northeast_us":
-				case "us_northeast":
-				case "northeast":
-					serverIp = "play.btene.com";
-					serverName = "BTE Northeast USA";
-					break;
-				case "alps":
-					serverIp = "mc.alps-bte.com";
-					serverName = "Alps BTE (AT/CH/LI)";
-					break;
-				case "montreal":
-				case "canada":
-					serverIp = "btecanada.net";
-					serverName = "BTE Canada";
-					break;
-				case "russia":
-				case "cis":
-					serverIp = "BuildTheEarth.ru";
-					serverName = "TeamCIS";
-					break;
-				case "southeast_us":
-				case "us_southeast":
-				case "southeast":
-					serverIp = "207.244.229.33:25567";
-					serverName = "BTE Southeast US";
-					break;
-				case "carolinas_us":
-				case "us_carolinas":
-				case "carolinas":
-					serverIp = "64.139.238.70:25565";
-					serverName = "BTE Carolinas";
-					break;
-				case "japan":
-					serverIp = "btejp.net";
-					serverName = "BTE Japan";
-					break;
-				case "argentina":
-				case "chile":
-					serverIp = "bteconosur.com";
-					serverName = "BuildTheEarth - Southern Cone";
-					break;
-				case "hong_kong":
-				case "macau":
-				case "hk_mu":
-				case "hkmu":
-					serverIp = "play.btehkmu.com";
-					serverName = "Team HK-MU";
-					break;
-				case "wb":
-				case "israel_wb":
-				case "israel":
-					serverIp = "play.bteisrael.online";
-					serverName = "Israel & The West Bank";
-					break;
-				case "taiwan":
-					serverIp = "btetw.duckarmada.com";
-					serverName = "BTE Taiwan";
-					break;
-				case "controversy":
-					serverIp = "teams.buildtheearth.net:25503";
-					serverName = "BTE Controversy";
-					break;
-				case "france":
-					serverIp = "bte.thesmyler.fr";
-					serverName = "BTE France";
-					break;
-				default:
-					serverIp = "buildtheearth.net";
-					serverName = "Build The Earth";
-					break;
-			}
+		try {
+			serverIp = BTEServerIPGetter.getIp(args[0].toLowerCase());
+		} catch (IOException | ParseException e) {
+			e.printStackTrace();
 		}
-
-		sender.sendMessage((new TextComponentString("Connecting to the ")).appendText(serverName + " server..."));
 		
 		// I would not know how to do this, thank you KaiKikuchi for saving my time.
 		// https://github.com/KaiKikuchi/ServerRedirect/tree/forge1.12.2
@@ -216,7 +110,7 @@ public class BTECommand extends CommandBase {
 	@Override
 	public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, @Nullable BlockPos targetPos)
     {
-        return args.length == 1 ? getListOfStringsMatchingLastWord(args, ips) : Collections.emptyList();
+        return args.length == 1 ? getListOfStringsMatchingLastWord(args, acceptableIps) : Collections.emptyList();
     }
 
 }
