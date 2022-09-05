@@ -20,7 +20,6 @@ import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentString;
 
 public class BTECommand extends CommandBase {
 
@@ -28,6 +27,8 @@ public class BTECommand extends CommandBase {
 	// This shows in the tab
 	public String[] acceptableIps = {
 			"bte",
+			"ny",
+			"nyc",
             "germany",
             "nj",
             "southwest_us",
@@ -42,10 +43,10 @@ public class BTECommand extends CommandBase {
             "us_northeast",
             "northeast",
             "alps",
-            "montreal",
             "canada",
             "russia",
             "cis",
+            "kyiv",
             "southeast_us",
             "us_southeast",
             "southeast",
@@ -64,7 +65,15 @@ public class BTECommand extends CommandBase {
             "wb",
             "taiwan",
             "controversy",
-            "france"};
+            "france",
+            "parks",
+            "benelux",
+            "iberia",
+            "turkey",
+            "korea",
+            "peru",
+            "china",
+            "bolivia"};
 
 	@Override
 	public List<String> getAliases() {
