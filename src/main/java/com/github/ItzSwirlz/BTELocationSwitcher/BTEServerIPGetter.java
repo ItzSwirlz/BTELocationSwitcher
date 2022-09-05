@@ -28,16 +28,9 @@ public class BTEServerIPGetter {
 
 		JSONObject obj = (JSONObject) o;
 		
-		// sanity checks on our server alias
-		if(serverAlias.length() == 0) {
-			serverAlias = "bte";
-		}
-		
+		// Sanity check
 		switch(serverAlias) {
 		case "":
-			serverAlias = "bte";
-			break;
-		default:
 			serverAlias = "bte";
 			break;
 		}

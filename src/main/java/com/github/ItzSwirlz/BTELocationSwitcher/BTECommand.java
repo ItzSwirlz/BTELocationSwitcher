@@ -26,9 +26,9 @@ public class BTECommand extends CommandBase {
 	// Alias's for the server names people can go by
 	// This shows in the tab
 	public String[] acceptableIps = {
-			"bte",
-			"ny",
-			"nyc",
+            "bte",
+            "ny",
+            "nyc",
             "germany",
             "nj",
             "southwest_us",
