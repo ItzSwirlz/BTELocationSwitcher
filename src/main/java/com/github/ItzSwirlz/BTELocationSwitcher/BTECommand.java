@@ -1,10 +1,13 @@
 package com.github.ItzSwirlz.BTELocationSwitcher;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.Nullable;
+
+import org.json.simple.parser.ParseException;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiMainMenu;
@@ -21,7 +24,7 @@ import net.minecraft.util.text.TextComponentString;
 
 public class BTECommand extends CommandBase {
 
-	public String[] ips = {"bte",
+	public String[] ips = {
             "germany",
             "nj",
             "southwest_us",
@@ -91,9 +94,13 @@ public class BTECommand extends CommandBase {
 			serverName = "Build The Earth";
 		} else {
 			switch(args[0].toLowerCase()) {
-				case "":
-					serverIp = "buildtheearth.net";
-					serverName = "Build The Earth";
+				case "bte":
+				try {
+					BTEServerIPGetter.getIp(args[0].toLowerCase());
+				} catch (IOException | ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 					break;
 				case "germany":
 					serverIp = "bte-germany.de";
